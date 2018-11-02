@@ -1,0 +1,41 @@
+查询master节点的唯一标识
+
+curl 'localhost:9200/_nodes/process?pretty'
+
+查看所有分片状态
+
+curl -XGET http://localhost:9200/_cat/shards
+
+查询集群健康状态
+
+curl -XGET 'http://53.28.100.5:9200/_cat/health?v'
+
+curl -XGET http://localhost:9200/_cluster/health\?pretty
+
+
+查看集群的整体情况
+curl -XGET 'http://localhost:9200/_nodes/stats?pretty'
+  
+
+找出UNASSIGNED分片
+
+curl -s "http://localhost:9200/_cat/shards" | grep UNASSIGNED
+
+重新分配节点
+curl -XPOST 'localhost:9200/_cluster/reroute' -d '{
+        "commands" : [ {
+              "allocate" : {
+                  "index" : "xxxx",
+                  "shard" : 3,
+                  "node" : "mHbd9k9bT_e06OieycC84A",
+                  "allow_primary" : true
+              }
+            }
+        ]
+}'
+
+49ba59abbe56e057
+e10adc3949ba59abbe56e057f20f883e
+
+
+
