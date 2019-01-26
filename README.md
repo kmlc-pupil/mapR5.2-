@@ -6,6 +6,7 @@
 
 官方文档地址：https://mapr.com/docs/52/c_52_home.html
 
+欢迎加入MapR翻译交流群：974149447
 
 Author : puppo 
 联系方式: 877155046@qq.com 
